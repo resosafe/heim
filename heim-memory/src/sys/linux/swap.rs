@@ -40,7 +40,7 @@ impl FromStr for VmStat {
                                 // Values are expressed in 4 kilo bytes, we want bytes instead.
                                 // Source: psutil
                                 let value = kbytes.parse::<u64>()?;
-                                Information::new::<information::kilobyte>(4 * value)
+                                Information::new::<information::kibibyte>(4 * value)
                             }
                             None => continue,
                         };
@@ -112,7 +112,7 @@ impl Swap {
                         let bytes = match value.trim_start().splitn(2, ' ').next() {
                             Some(kbytes) => {
                                 let value = kbytes.parse::<u64>()?;
-                                Information::new::<information::kilobyte>(value)
+                                Information::new::<information::kibibyte>(value)
                             }
                             None => continue,
                         };
